@@ -3,7 +3,8 @@ export const typeDefs = `#graphql
     id: ID!
     nombre: String!
     telefono: String!
-
+    pais: String!
+    hora: String!
   }
 
   type Query {
