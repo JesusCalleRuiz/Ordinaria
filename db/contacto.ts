@@ -5,9 +5,7 @@ const Schema = mongoose.Schema;
 
 const ContactoSchema = new Schema({
     nombre : {type: String, required: true},
-    telefono : {type: String, required: true},
-    hora : {type: String},
-    pais : {type: String},
+    telefono : {type: String, required: true, unique:true},
 });
 
 export type ContactoModelType = mongoose.Document & Omit<Contacto,"id">;

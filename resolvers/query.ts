@@ -9,20 +9,25 @@ export const Query = {
                 extensions: {code : "NOT_FOUND"},
             });
         }
-
+        return contacto;
+        
         const response = await fetch(`https://api.api-ninjas.com/v1/validatephone?number=${contacto.telefono}`);
         if(response.status!==200){
             throw new Error("Invalid telefono");
         }
         const data = await response.json();
-        contacto.pais = data.country;
-
+        
         const response2 = await fetch(`https://api.api-ninjas.com/v1/worldtime?city=${contacto.pais}`);
 
         const data2 = await response.json();
-        contacto.hora = data2.hour;
-
-        return contacto;
+        /*
+        {
+            nombre : contacto.nombre,
+            telefono : contacto.telefono,
+            pais : data.country,
+            hora : data2.hour,
+        }*/
+    
     },
 
     getContacts : async():Promise<ContactoModelType[]> => {
